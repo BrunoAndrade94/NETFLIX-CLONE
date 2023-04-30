@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+    mondogb:
+        container_name: mondogb
+        hostname: mysql_host
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: dba
+            MONGO_INITDB_ROOT_PASSWORD: dba
+            MONGO_INITDB_DATABASE: test
+        volumes:
+            - .:/src/data_volume
+        ports:
+            - "27017:27017"
