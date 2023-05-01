@@ -42,6 +42,7 @@ export default NextAuth({
 						email: credentials.email,
 					},
 				});
+
 				if (!user || !user.hashedPassword) {
 					throw new Error("Email does not exist!");
 				}
@@ -60,7 +61,7 @@ export default NextAuth({
 		}),
 	],
 	pages: {
-		signIn: "/Auth",
+		signIn: "/auth",
 	},
 	debug: process.env.NODE_ENV === "development",
 	adapter: PrismaAdapter(prismadb),
